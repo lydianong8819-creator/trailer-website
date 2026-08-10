@@ -1,96 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semi-Trailer Products</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AUTO ZHONGRISES Semi-Trailer Manufacturer</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background:#f7f9fc;color:#333;line-height:1.6;}
 
-        body {
-            background-color: #f5f7fa;
-            padding: 20px;
-        }
+/* 顶部深蓝色头部：公司名称+语言选择 */
+.top-bar{background:#162544;max-width:1200px;margin:0 auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
+.brand{color:#fff;font-size:22px;font-weight:bold;}
+.lang-box select{padding:7px 10px;border-radius:4px;border:0;background:#fff;}
 
-        .product-wrap {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+/* 主导航菜单 Home Factory Products Africa Service Contact */
+.main-nav{max-width:1200px;margin:12px auto 35px;background:#fff;padding:12px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
+.nav-list{display:flex;justify-content:center;gap:45px;list-style:none;}
+.nav-list a{text-decoration:none;color:#333;font-size:16px;padding-bottom:4px;}
+.nav-list a.active{color:#162544;font-weight:bold;border-bottom:2px solid #162544;}
+.nav-list a:hover{color:#162544;}
 
-        .product-title {
-            text-align: center;
-            font-size: 28px;
-            color: #222;
-            margin-bottom: 30px;
-        }
+/* 首页全屏宣传视频区域 */
+.banner-video{max-width:1200px;margin:0 auto 50px;border-radius:8px;overflow:hidden;}
+.banner-video video{width:100%;max-height:480px;object-fit:cover;display:block;}
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
+/* Manufacturing Strength 工厂实力板块 */
+.factory-area{max-width:1200px;margin:0 auto 60px;padding:0 20px;}
+.factory-title{font-size:24px;color:#162544;margin-bottom:22px;font-weight:bold;}
+.factory-items{display:flex;flex-direction:column;gap:14px;}
+.factory-item{background:#fff;padding:18px 22px;border-radius:6px;}
 
-        .product-item {
-            background: #fff;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .product-item img {
-            width: 100%;
-            border-radius: 6px;
-            display: block;
-        }
-
-        .product-item p {
-            text-align: center;
-            margin-top: 12px;
-            font-size: 16px;
-            color: #333;
-        }
-    </style>
+/* 产品图片展示区域 */
+.product-area{max-width:1200px;margin:0 auto;padding:0 20px 40px;}
+.product-title{text-align:center;font-size:26px;margin-bottom:30px;color:#222;}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:28px;}
+.product-card{background:#fff;padding:15px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+.product-card img{width:100%;border-radius:6px;display:block;}
+.product-card p{text-align:center;margin-top:12px;font-size:16px;}
+</style>
 </head>
 <body>
 
-<!-- 首页顶部自动播放宣传视频 -->
-<div style="width: 100%; margin: 0 auto 40px; max-width: 1200px; overflow: hidden; border-radius: 8px;">
-    <video autoplay muted loop playsinline style="width: 100%; max-height: 480px; object-fit: cover;">
-        <source src="1.mp4" type="video/mp4">
-    </video>
+<!-- 顶部品牌栏 AUTO ZHONGRISES + English选择框 -->
+<div class="top-bar">
+<div class="brand">AUTO ZHONGRISES</div>
+<div class="lang-box">
+<select>
+<option>English</option>
+</select>
+</div>
 </div>
 
-<!-- 半挂车产品展示区域 -->
-<section class="product-wrap">
-    <h2 class="product-title">Our Semi-Trailer Models</h2>
-    <div class="product-grid">
-        <div class="product-item">
-            <img loading="lazy" src="1.jpg" alt="Flatbed Semi-trailer">
-            <p>Flatbed Semi-trailer</p>
-        </div>
-        <div class="product-item">
-            <img loading="lazy" src="2.jpg" alt="Curtain Side Semi-trailer">
-            <p>Curtain Side Semi-trailer</p>
-        </div>
-        <div class="product-item">
-            <img loading="lazy" src="3.jpg" alt="Lowbed Flatbed Trailer With Ramps">
-            <p>Lowbed Flatbed Trailer With Ramps</p>
-        </div>
-        <div class="product-item">
-            <img loading="lazy" src="4.jpg" alt="Lowbed Gooseneck Trailer">
-            <p>Lowbed Gooseneck Trailer</p>
-        </div>
-        <div class="product-item">
-            <img loading="lazy" src="7.jpg" alt="Excavator Lowbed Semi-trailer">
-            <p>Lowbed Semi-trailer</p>
-        </div>
-    </div>
+<!-- 导航菜单 -->
+<nav class="main-nav">
+<ul class="nav-list">
+<li><a href="#" class="active">Home</a></li>
+<li><a href="#">Factory</a></li>
+<li><a href="#">Products</a></li>
+<li><a href="#">Africa Service</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</nav>
+
+<!-- 宣传视频（保留原有6.mp4） -->
+<div class="banner-video">
+<video autoplay muted loop playsinline>
+<source src="6.mp4" type="video/mp4">
+</video>
+</div>
+
+<!-- 工厂制造实力内容（你截图里的全部文字完整保留） -->
+<section class="factory-area">
+<h2 class="factory-title">Manufacturing Strength</h2>
+<div class="factory-items">
+<div class="factory-item">3 professional production plants, total area 180,000 square meters</div>
+<div class="factory-item">Annual production capacity: 15,000 units</div>
+<div class="factory-item">More than 400 skilled technicians and professional engineers</div>
+<div class="factory-item">Automatic laser cutting equipment, robot welding lines, standard paint spraying workshop</div>
+</div>
+</section>
+
+<!-- 半挂车产品图片卡片全部保留 -->
+<section class="product-area">
+<h2 class="product-title">Our Semi-Trailer Models</h2>
+<div class="product-grid">
+<div class="product-card">
+<img loading="lazy" src="1.jpg" alt="Flatbed Semi-trailer">
+<p>Flatbed Semi-trailer</p>
+</div>
+<div class="product-card">
+<img loading="lazy" src="2.jpg" alt="Curtain Side Semi-trailer">
+<p>Curtain Side Semi-trailer</p>
+</div>
+<div class="product-card">
+<img loading="lazy" src="3.jpg" alt="Lowbed Flatbed Trailer With Ramps">
+<p>Lowbed Flatbed Trailer With Ramps</p>
+</div>
+<div class="product-card">
+<img loading="lazy" src="4.jpg" alt="Lowbed Gooseneck Trailer">
+<p>Lowbed Gooseneck Trailer</p>
+</div>
+<div class="product-card">
+<img loading="lazy" src="7.jpg" alt="Excavator Lowbed Semi-trailer">
+<p>Lowbed Semi-trailer</p>
+</div>
+</div>
 </section>
 
 </body>
