@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- 手机自适应必备 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Semi-Trailer Products</title>
     <style>
@@ -12,37 +11,44 @@
             box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
+
         body {
-            background: #f8f9fa;
+            background-color: #f5f7fa;
+            padding: 20px;
         }
+
         .product-wrap {
-            margin: 60px auto;
-            width: 95%;
             max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
+
         .product-title {
             text-align: center;
-            margin-bottom: 40px;
             font-size: 28px;
             color: #222;
+            margin-bottom: 30px;
         }
+
         .product-grid {
             display: grid;
-            /* 自适应多列，最小卡片宽度280px */
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
         }
+
         .product-item {
             background: #fff;
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
+
         .product-item img {
             width: 100%;
             border-radius: 6px;
             display: block;
         }
+
         .product-item p {
             text-align: center;
             margin-top: 12px;
@@ -53,42 +59,39 @@
 </head>
 <body>
 
+<!-- 首页顶部自动播放宣传视频 -->
+<div style="width: 100%; margin: 0 auto 40px; max-width: 1200px; overflow: hidden; border-radius: 8px;">
+    <video autoplay muted loop playsinline style="width: 100%; max-height: 480px; object-fit: cover;">
+        <source src="1.mp4" type="video/mp4">
+    </video>
+</div>
+
+<!-- 半挂车产品展示区域 -->
 <section class="product-wrap">
     <h2 class="product-title">Our Semi-Trailer Models</h2>
     <div class="product-grid">
-        <!-- 平板1 -->
         <div class="product-item">
             <img loading="lazy" src="1.jpg" alt="Flatbed Semi-trailer">
             <p>Flatbed Semi-trailer</p>
         </div>
-        <!-- 侧帘挂车 -->
         <div class="product-item">
             <img loading="lazy" src="2.jpg" alt="Curtain Side Semi-trailer">
             <p>Curtain Side Semi-trailer</p>
         </div>
-        <!-- 带坡道的低平板挂车 -->
         <div class="product-item">
             <img loading="lazy" src="3.jpg" alt="Lowbed Flatbed Trailer With Ramps">
             <p>Lowbed Flatbed Trailer With Ramps</p>
         </div>
-        <!-- 低平板鹅颈挂车 -->
         <div class="product-item">
             <img loading="lazy" src="4.jpg" alt="Lowbed Gooseneck Trailer">
             <p>Lowbed Gooseneck Trailer</p>
         </div>
-        <!-- 低平板挂车 -->
-       <div class="product-item">
-    <img loading="lazy" src="7.jpg" alt="Excavator Lowbed Semi-trailer">
-    <p>Lowbed Semi-trailer</p>
-</div>
+        <div class="product-item">
+            <img loading="lazy" src="7.jpg" alt="Excavator Lowbed Semi-trailer">
+            <p>Lowbed Semi-trailer</p>
+        </div>
     </div>
 </section>
 
 </body>
-    <!-- 顶部宣传视频横幅 -->
-<div style="width: 100%; margin: 40px 0; overflow: hidden;">
-    <video autoplay muted loop playsinline style="width: 100%; max-height: 480px; object-fit: cover; border-radius: 8px;">
-        <source src="1.mp4" type="video/mp4">
-    </video>
-</div>
 </html>
