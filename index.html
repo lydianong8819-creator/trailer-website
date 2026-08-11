@@ -3,92 +3,324 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AUTO ZHONGRISES</title>
+<title>AUTO ZHONGRISES Semi Trailer Manufacturer</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
-body{background:#fff;color:#333;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;scroll-behavior:smooth;}
+body{background:#ffffff;color:#333;line-height:1.7;padding-bottom:90px;}
 
-/* 顶部头部 */
-.top-bar{max-width:1200px;margin:0 auto;padding:20px 15px;display:flex;justify-content:space-between;align-items:center;}
+/* 顶部头部：Logo+搜索+WhatsApp */
+.top-header{max-width:1200px;margin:0 auto;padding:20px 15px;display:flex;justify-content:space-between;align-items:center;}
 .logo{font-size:36px;font-weight:bold;color:#162544;}
-.search-box{display:flex;}
-.search-input{border:1px solid #ddd;padding:9px;width:260px;}
-.search-btn{background:#ff8800;color:#fff;border:none;padding:0 15px;}
+.search-area{display:flex;gap:8px;}
+.search-input{border:1px solid #ddd;padding:10px 15px;width:280px;font-size:15px;}
+.search-btn{background:#ff8800;color:#fff;border:none;padding:0 16px;font-weight:bold;cursor:pointer;}
+.whatsapp-top{font-weight:bold;color:#162544;font-size:16px;}
 
-/* 导航栏 */
-.nav{background:#162544;}
-.nav-wrap{max-width:1200px;margin:0 auto;display:flex;list-style:none;}
-.nav li a{color:#fff;text-decoration:none;padding:16px 20px;display:block;}
+/* 深蓝色主导航 */
+.main-nav{background:#162544;}
+.nav-wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
+.nav-list{display:flex;list-style:none;}
+.nav-list li a{display:block;color:#fff;text-decoration:none;padding:16px 22px;font-size:16px;}
+.nav-list li a:hover{background:#0f1f38;}
+.nav-active{background:#0f1f38;}
+/* 四国语言下拉选择 */
+.lang-select{padding:7px 10px;border:none;margin-right:15px;background:#fff;color:#333;cursor:pointer;}
 
-/* ==========首页视频 强制显示========== */
-.banner-video{max-width:1200px;margin:0 auto 30px;width:100%;}
-.banner-video video{width:100%;display:block;}
+/* 首页横幅视频，加载失败自动显示图片 */
+.banner-box{max-width:1200px;margin:0 auto 35px;width:100%;}
+.banner-box video{width:100%;display:block;height:auto;object-fit:cover;}
+.banner-fallback{width:100%;display:none;}
 
-/* 产品横排4列布局 */
+/* 容器统一样式 */
 .container{max-width:1200px;margin:0 auto;padding:0 15px;}
-.title-h2{font-size:22px;color:#162544;margin:40px 0 20px;}
-.product-list{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;}
-.product-item{border:1px solid #eee;text-align:center;padding:15px;}
-.product-item img{width:100%;height:220px;object-fit:cover;}
+.block-title{font-size:24px;color:#162544;margin:60px 0 25px;font-weight:bold;border-bottom:1px solid #eee;padding-bottom:10px;}
 
-/* 右下角悬浮WhatsApp */
-.whatsapp-fixed{position:fixed;right:20px;bottom:30px;background:#25d366;color:#fff;padding:12px 20px;border-radius:30px;text-decoration:none;font-weight:bold;}
+/* 公司介绍板块 */
+.about-block{background:#f8f9fa;padding:30px;border-radius:6px;margin-bottom:40px;font-size:16px;line-height:1.8;}
+
+/* 产品横排网格布局：电脑一行4列 */
+.group-title{font-size:22px;color:#162544;margin:45px 0 20px;font-weight:bold;}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;margin-bottom:35px;}
+.product-card{border:1px solid #eee;text-align:center;padding:15px;background:#fff;}
+.product-card img{width:100%;height:220px;object-fit:cover;}
+.product-name{padding:12px 0;font-size:15px;}
+
+/* 非洲专线服务板块 */
+.africa-block{background:#f8f9fa;padding:30px;border-radius:6px;margin:50px 0;font-size:16px;}
+
+/* 询价表单区域 */
+.form-block{background:#f8f9fa;padding:35px;border-radius:6px;}
+.whatsapp-number{font-size:18px;font-weight:bold;color:#162544;margin-bottom:25px;}
+.form-item{margin-bottom:20px;}
+.form-input{width:100%;padding:13px;border:1px solid #ddd;font-size:15px;border-radius:4px;}
+.form-textarea{width:100%;min-height:130px;padding:13px;border:1px solid #ddd;font-size:15px;resize:vertical;border-radius:4px;}
+.submit-btn{background:#162544;color:#fff;border:none;padding:13px 28px;font-size:16px;border-radius:4px;cursor:pointer;}
+
+/* 右下角固定悬浮WhatsApp在线按钮 */
+.fixed-whatsapp{position:fixed;right:25px;bottom:30px;background:#25d366;color:#fff;padding:13px 22px;border-radius:50px;font-weight:bold;text-decoration:none;box-shadow:0 3px 12px rgba(0,0,0,0.15);z-index:999;}
+
+/* 语言隐藏通用样式 */
+.lang{display:none;}
+.lang-show{display:block;}
 </style>
 </head>
 <body>
 
-<div class="top-bar">
-    <div class="logo">AUTO ZHONGRISES</div>
-    <div class="search-box">
-        <input class="search-input" placeholder="Search">
+<!-- 顶部头部 -->
+<div class="top-header">
+    <div class="logo lang lang-show" data-lang="en">AUTO ZHONGRISES</div>
+    <div class="logo lang" data-lang="fr">AUTO ZHONGRISES</div>
+    <div class="logo lang" data-lang="pt">AUTO ZHONGRISES</div>
+    <div class="logo lang" data-lang="ar">أوتو زونغريزيس</div>
+
+    <div class="search-area">
+        <input type="text" class="search-input lang lang-show" data-lang="en" placeholder="Search">
+        <input type="text" class="search-input lang" data-lang="fr" placeholder="Rechercher">
+        <input type="text" class="search-input lang" data-lang="pt" placeholder="Pesquisar">
+        <input type="text" class="search-input lang" data-lang="ar" placeholder="البحث">
         <button class="search-btn">Q</button>
     </div>
-    <div>WhatsApp</div>
+
+    <div class="whatsapp-top lang lang-show" data-lang="en">WhatsApp</div>
+    <div class="whatsapp-top lang" data-lang="fr">WhatsApp</div>
+    <div class="whatsapp-top lang" data-lang="pt">WhatsApp</div>
+    <div class="whatsapp-top lang" data-lang="ar">واتساب</div>
 </div>
 
-<ul class="nav nav-wrap">
-    <li><a href="/trailer-website/">Home</a></li>
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Product Center</a></li>
-    <li><a href="#">Africa Service</a></li>
-    <li><a href="#">Contact Us</a></li>
-</ul>
+<!-- 导航栏 + 四国语言切换下拉框 -->
+<div class="main-nav">
+    <div class="nav-wrap">
+        <ul class="nav-list">
+            <li><a href="/trailer-website/" class="nav-item nav-active lang lang-show" data-lang="en">Home</a>
+                <a href="/trailer-website/" class="nav-item lang" data-lang="fr">Accueil</a>
+                <a href="/trailer-website/" class="nav-item lang" data-lang="pt">Início</a>
+                <a href="/trailer-website/" class="nav-item lang" data-lang="ar">الرئيسية</a>
+            </li>
+            <li><a href="#about" class="nav-item lang lang-show" data-lang="en">About Us</a>
+                <a href="#about" class="nav-item lang" data-lang="fr">À propos de nous</a>
+                <a href="#about" class="nav-item lang" data-lang="pt">Sobre nós</a>
+                <a href="#about" class="nav-item lang" data-lang="ar">معلومات عنا</a>
+            </li>
+            <li><a href="#products" class="nav-item lang lang-show" data-lang="en">Product Center</a>
+                <a href="#products" class="nav-item lang" data-lang="fr">Centre de produits</a>
+                <a href="#products" class="nav-item lang" data-lang="pt">Centro de produtos</a>
+                <a href="#products" class="nav-item lang" data-lang="ar">مركز المنتجات</a>
+            </li>
+            <li><a href="#africa" class="nav-item lang lang-show" data-lang="en">Africa Service</a>
+                <a href="#africa" class="nav-item lang" data-lang="fr">Service Afrique</a>
+                <a href="#africa" class="nav-item lang" data-lang="pt">Serviço África</a>
+                <a href="#africa" class="nav-item lang" data-lang="ar">الخدمة الأفريقية</a>
+            </li>
+            <li><a href="#contact" class="nav-item lang lang-show" data-lang="en">Contact Us</a>
+                <a href="#contact" class="nav-item lang" data-lang="fr">Contactez-nous</a>
+                <a href="#contact" class="nav-item lang" data-lang="pt">Contate-nos</a>
+                <a href="#contact" class="nav-item lang" data-lang="ar">اتصل بنا</a>
+            </li>
+        </ul>
 
-<!-- 视频区域，最先加载 -->
-<div class="banner-video">
+        <select id="languageSwitch" class="lang-select">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="pt">Português</option>
+            <option value="ar">العربية</option>
+        </select>
+    </div>
+</div>
+
+<!-- 首页横幅视频 -->
+<div class="banner-box">
     <video autoplay muted loop playsinline>
         <source src="6.mp4" type="video/mp4">
+        <img class="banner-fallback" src="1.jpg">
     </video>
 </div>
 
 <div class="container">
-<h2 class="title-h2">Flatbed Semi-trailer Series</h2>
-<div class="product-list">
-<div class="product-item">
-<img src="1.jpg">
-<p>60 Ton Flatbed Semi Trailer</p>
-</div>
+    <!-- 一、公司介绍 About Us -->
+    <section id="about">
+        <h2 class="block-title lang lang-show" data-lang="en">About Our Company</h2>
+        <h2 class="block-title lang" data-lang="fr">Présentation de notre usine</h2>
+        <h2 class="block-title lang" data-lang="pt">Sobre nossa fábrica</h2>
+        <h2 class="block-title lang" data-lang="ar">عن مصنعنا</h2>
+
+        <div class="about-block lang lang-show" data-lang="en">
+            We are a professional manufacturer of semi-trailers located in China, specializing in flatbed semi-trailers, lowbed heavy duty trailers, container skeleton trailers, dump tipper trailers and tractor heads. We have more than 15 years export experience to African countries: Nigeria, Algeria, Namibia, Yemen etc. We accept FOB, CFR, CIF shipping terms, provide stable quality and competitive price for all African customers.
+        </div>
+        <div class="about-block lang" data-lang="fr">
+            Nous sommes un fabricant professionnel de semi-remorques en Chine, spécialisé dans les semi-remorques à plate-forme, les remorques lourdes à plancher bas, les remorques squelettes pour conteneurs, les remorques basculantes et les têtes de tracteur. Nous avons plus de 15 ans d'expérience d'exportation vers les pays africains: Nigéria, Algérie, Namibie, Yémen etc. Nous acceptons les conditions de livraison FOB, CFR, CIF.
+        </div>
+        <div class="about-block lang" data-lang="pt">
+            Somos um fabricante profissional de semi-reboques na China, especializados em semi-reboques de plataforma, reboques pesados de baixa plataforma, reboques estrutura de contêiner, reboques basculantes e cabeças de trator. Temos mais de 15 anos de experiência de exportação para países africanos: Nigéria, Argélia, Namíbia, Iêmen etc. Aceitamos termos de frete FOB, CFR, CIF.
+        </div>
+        <div class="about-block lang" data-lang="ar">
+            نحن مصنع محترف لشبه المقطورات في الصين، متخصصون في المقطورات المسطحة، المقطورات الثقيلة المنخفضة، هياكل حاويات، المقطورات القلابة ورؤوس الجرارات. لدينا أكثر من 15 عامًا من الخبرة في التصدير إلى الدول الأفريقية: نيجيريا، الجزائر، ناميبيا، اليمن وغيرها. نحن نقبل شروط الشحن فوب، سي أف آر، سي آي إف.
+        </div>
+    </section>
+
+    <!-- 二、产品中心 Product Center 横排布局 -->
+    <section id="products">
+        <h2 class="block-title lang lang-show" data-lang="en">Product Center</h2>
+        <h2 class="block-title lang" data-lang="fr">Centre de produits</h2>
+        <h2 class="block-title lang" data-lang="pt">Centro de produtos</h2>
+        <h2 class="block-title lang" data-lang="ar">مركز المنتجات</h2>
+
+        <!-- 平板半挂车系列 -->
+        <h3 class="group-title lang lang-show" data-lang="en">Flatbed Semi-trailer Series</h3>
+        <h3 class="group-title lang" data-lang="fr">Semi-remorques à plate-forme</h3>
+        <h3 class="group-title lang" data-lang="pt">Série de semi-reboques de plataforma</h3>
+        <h3 class="group-title lang" data-lang="ar">سلسلة المقطورات المسطحة</h3>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="1.jpg">
+                <p class="product-name lang lang-show" data-lang="en">60 Ton Flatbed Semi Trailer</p>
+                <p class="product-name lang" data-lang="fr">Semi-remorque plate-forme 60 tonnes</p>
+                <p class="product-name lang" data-lang="pt">Semi-reboque plataforma 60 toneladas</p>
+                <p class="product-name lang" data-lang="ar">مقطورة مسطحة 60 طن</p>
+            </div>
+        </div>
+
+        <!-- 低平板半挂车系列 -->
+        <h3 class="group-title lang lang-show" data-lang="en">Lowbed Semi-trailer Series</h3>
+        <h3 class="group-title lang" data-lang="fr">Semi-remorques à plancher bas</h3>
+        <h3 class="group-title lang" data-lang="pt">Série de semi-reboques de baixa plataforma</h3>
+        <h3 class="group-title lang" data-lang="ar">سلسلة المقطورات المنخفضة</h3>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="3.jpg">
+                <p class="product-name lang lang-show" data-lang="en">60 Ton Lowbed Semi Trailer</p>
+                <p class="product-name lang" data-lang="fr">Semi-remorque plancher bas 60 tonnes</p>
+            </div>
+            <div class="product-card">
+                <img src="4.jpg">
+                <p class="product-name lang lang-show" data-lang="en">Gooseneck Lowbed Trailer</p>
+                <p class="product-name lang" data-lang="fr">Remorque col de cygne plancher bas</p>
+            </div>
+            <div class="product-card">
+                <img src="7.jpg">
+                <p class="product-name lang lang-show" data-lang="en">Heavy Duty Lowbed Semi Trailer</p>
+                <p class="product-name lang" data-lang="fr">Semi-remorque lourd plancher bas</p>
+            </div>
+        </div>
+
+        <!-- 集装箱骨架车 -->
+        <h3 class="group-title lang lang-show" data-lang="en">Container Skeleton Trailer Series</h3>
+        <h3 class="group-title lang" data-lang="fr">Remorques squelettes pour conteneurs</h3>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="8.jpg">
+                <p class="product-name lang lang-show" data-lang="en">40ft Container Skeleton Trailer</p>
+            </div>
+        </div>
+
+        <!-- 自卸半挂车 -->
+        <h3 class="group-title lang lang-show" data-lang="en">Dump Tipper Semi-trailer Series</h3>
+        <h3 class="group-title lang" data-lang="fr">Semi-remorques basculantes</h3>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="9.jpg">
+                <p class="product-name lang lang-show" data-lang="en">Tipper Dump Semi Trailer</p>
+            </div>
+        </div>
+
+        <!-- 牵引车头 -->
+        <h3 class="group-title lang lang-show" data-lang="en">Tractor Head Series</h3>
+        <h3 class="group-title lang" data-lang="fr">Têtes de tracteur</h3>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="30.jpg">
+                <p class="product-name lang lang-show" data-lang="en">Heavy Duty Tractor Truck Head</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 三、非洲专线服务 Africa Service -->
+    <section id="africa" class="africa-block">
+        <h2 class="block-title lang lang-show" data-lang="en">Africa Shipping Service</h2>
+        <h2 class="block-title lang" data-lang="fr">Service de transport vers l'Afrique</h2>
+        <h2 class="block-title lang" data-lang="pt">Serviço de envio para África</h2>
+        <h2 class="block-title lang" data-lang="ar">خدمات الشحن إلى أفريقيا</h2>
+
+        <div class="lang lang-show" data-lang="en">
+We provide stable sea transportation to all African main ports: Lagos (Nigeria), Walvis Bay (Namibia), Alger Port (Algeria), Hodeidah (Yemen). We support FOB, CFR, CIF delivery terms, full customs clearance documents, reasonable shipping cost for all African customers.
+        </div>
+        <div class="lang" data-lang="fr">
+Nous assurons un transport maritime fiable vers les principaux ports africains: Lagos (Nigéria), Walvis Bay (Namibie), port d'Alger (Algérie), Hodeidah (Yémen). Nous proposons les conditions FOB, CFR, CIF et tous les documents douaniers complets.
+        </div>
+        <div class="lang" data-lang="pt">
+Fornecemos transporte marítimo estável para os principais portos africanos: Lagos (Nigéria), Walvis Bay (Namíbia), Porto da Argélia (Argélia), Hodeidah (Iêmen). Aceitamos termos FOB, CFR, CIF e todos os documentos alfandegários completos.
+        </div>
+        <div class="lang" data-lang="ar">
+نحن نقدم شحنًا بحريًا مستقرًا إلى الموانئ الأفريقية الرئيسية: لاغوس (نيجيريا)، خليج والفيس (ناميبيا)، ميناء الجزائر، الحديدة (اليمن). نحن نقدم شروط فوب وسي أف آر وسي آي إف وكافة الوثائق الجمركية الكاملة.
+        </div>
+    </section>
+
+    <!-- 四、联系我们询价表单 Contact Us -->
+    <section id="contact">
+        <h2 class="block-title lang lang-show" data-lang="en">Send Your Inquiry</h2>
+        <h2 class="block-title lang" data-lang="fr">Envoyez votre demande</h2>
+        <h2 class="block-title lang" data-lang="pt">Envie sua cotação</h2>
+        <h2 class="block-title lang" data-lang="ar">أرسل استفسارك</h2>
+
+        <div class="form-block">
+            <div class="whatsapp-number lang lang-show" data-lang="en">WhatsApp: +86 13800138000</div>
+            <div class="whatsapp-number lang" data-lang="fr">WhatsApp: +86 13800138000</div>
+            <div class="whatsapp-number lang" data-lang="pt">WhatsApp: +86 13800138000</div>
+            <div class="whatsapp-number lang" data-lang="ar">واتساب: +86 13800138000</div>
+
+            <div class="form-item lang lang-show" data-lang="en">
+                <input class="form-input" placeholder="Your Full Name">
+            </div>
+            <div class="form-item lang" data-lang="fr">
+                <input class="form-input" placeholder="Votre nom complet">
+            </div>
+            <div class="form-item lang" data-lang="pt">
+                <input class="form-input" placeholder="Seu nome completo">
+            </div>
+            <div class="form-item lang" data-lang="ar">
+                <input class="form-input" placeholder="اسمك الكامل">
+            </div>
+
+            <div class="form-item lang lang-show" data-lang="en">
+                <input class="form-input" placeholder="Your WhatsApp / Email">
+            </div>
+            <div class="form-item lang" data-lang="fr">
+                <input class="form-input" placeholder="Votre WhatsApp / Email">
+            </div>
+
+            <div class="form-item lang lang-show" data-lang="en">
+                <textarea class="form-textarea" placeholder="Inquiry: Trailer Model, Quantity, Destination Port"></textarea>
+            </div>
+            <div class="form-item lang" data-lang="fr">
+                <textarea class="form-textarea" placeholder="Demande: Modèle de remorque, Quantité, Port de destination"></textarea>
+            </div>
+
+            <button class="submit-btn lang lang-show" data-lang="en">Send Inquiry</button>
+            <button class="submit-btn lang" data-lang="fr">Envoyer</button>
+            <button class="submit-btn lang" data-lang="pt">Enviar</button>
+            <button class="submit-btn lang" data-lang="ar">إرسال</button>
+        </div>
+    </section>
 </div>
 
-<h2 class="title-h2">Lowbed Semi-trailer Series</h2>
-<div class="product-list">
-<div class="product-item">
-<img src="3.jpg">
-<p>60 Ton Lowbed Semi Trailer</p>
-</div>
-<div class="product-item">
-<img src="4.jpg">
-<p>Gooseneck Lowbed Trailer</p>
-</div>
-<div class="product-item">
-<img src="7.jpg">
-<p>Heavy Duty Lowbed Semi Trailer</p>
-</div>
-</div>
+<!-- 右下角固定WhatsApp悬浮按钮 -->
+<a href="#" class="fixed-whatsapp lang lang-show" data-lang="en">WhatsApp Online</a>
+<a href="#" class="fixed-whatsapp lang" data-lang="fr">WhatsApp En ligne</a>
+<a href="#" class="fixed-whatsapp lang" data-lang="pt">WhatsApp Online</a>
+<a href="#" class="fixed-whatsapp lang" data-lang="ar">واتساب متاح</a>
 
-</div>
+<script>
+//四国语言切换核心脚本
+const select = document.getElementById('languageSwitch');
+const allLangElements = document.querySelectorAll('.lang');
 
-<a href="#" class="whatsapp-fixed">WhatsApp Online</a>
+select.addEventListener('change', function(){
+    const currentLang = this.value;
+    allLangElements.forEach(item => {
+        const itemLang = item.getAttribute('data-lang');
+        item.classList.toggle('lang-show', itemLang === currentLang);
+    });
+});
+</script>
 
 </body>
 </html>
