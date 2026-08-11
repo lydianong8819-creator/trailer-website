@@ -27,14 +27,15 @@ body{background:#f7f9fc;color:#333;line-height:1.8;padding-bottom:80px;}
 /* 通用区块样式 */
 .section{max-width:1200px;margin:80px auto;padding:0 20px;}
 .section-title{font-size:26px;color:#162544;margin-bottom:30px;font-weight:bold;}
+.group-title{font-size:22px;color:#222;margin:40px 0 20px;font-weight:bold;}
 
 /* Factory工厂板块 */
 .factory-items{display:flex;flex-direction:column;gap:14px;}
 .factory-item{background:#fff;padding:18px 22px;border-radius:6px;}
 
-/* 产品区域 */
+/* 产品区域分组 */
 .product-title{text-align:center;font-size:26px;margin-bottom:30px;color:#222;}
-.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:28px;}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:28px;margin-bottom:30px;}
 .product-card{background:#fff;padding:15px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);}
 .product-card img{width:100%;border-radius:6px;display:block;}
 .product-card p{text-align:center;margin-top:12px;font-size:16px;padding:8px 0;}
@@ -49,9 +50,10 @@ body{background:#f7f9fc;color:#333;line-height:1.8;padding-bottom:80px;}
 .form-textarea{min-height:120px;padding:14px;border:1px solid #ddd;border-radius:6px;font-size:16px;resize:vertical;}
 .submit-btn{width:160px;padding:14px;background:#162544;color:#fff;border:none;border-radius:6px;font-size:16px;cursor:pointer;}
 .submit-btn:hover{background:#0f1f38;}
+.whatsapp-info{margin:20px 0;font-size:18px;font-weight:bold;color:#162544;}
 
-/* 多语言文本隐藏，只显示当前选中语言 */
-.lang-box-content{display:none;}
+/* 多语言文本隐藏 */
+.lang-en,.lang-zh,.lang-fr,.lang-pt{display:none;}
 .lang-show{display:block;}
 </style>
 </head>
@@ -73,30 +75,35 @@ body{background:#f7f9fc;color:#333;line-height:1.8;padding-bottom:80px;}
 <!-- 导航菜单 -->
 <div class="main-nav">
 <ul class="nav-list">
-<li><a href="#" class="nav-item lang-en active">Home</a>
-<a href="#" class="nav-item lang-zh" style="display:none;">首页</a>
-<a href="#" class="nav-item lang-fr" style="display:none;">Accueil</a>
-<a href="#" class="nav-item lang-pt" style="display:none;">Início</a>
+<li>
+<a href="#" class="nav-item lang-en lang-show active">Home</a>
+<a href="#" class="nav-item lang-zh">首页</a>
+<a href="#" class="nav-item lang-fr">Accueil</a>
+<a href="#" class="nav-item lang-pt">Início</a>
 </li>
-<li><a href="#factory" class="nav-item lang-en">Factory</a>
-<a href="#factory" class="nav-item lang-zh" style="display:none;">工厂实力</a>
-<a href="#factory" class="nav-item lang-fr" style="display:none;">Usine</a>
-<a href="#factory" class="nav-item lang-pt" style="display:none;">Fábrica</a>
+<li>
+<a href="#factory" class="nav-item lang-en lang-show">Factory</a>
+<a href="#factory" class="nav-item lang-zh">工厂实力</a>
+<a href="#factory" class="nav-item lang-fr">Usine</a>
+<a href="#factory" class="nav-item lang-pt">Fábrica</a>
 </li>
-<li><a href="#products" class="nav-item lang-en">Products</a>
-<a href="#products" class="nav-item lang-zh" style="display:none;">产品展示</a>
-<a href="#products" class="nav-item lang-fr" style="display:none;">Produits</a>
-<a href="#products" class="nav-item lang-pt" style="display:none;">Produtos</a>
+<li>
+<a href="#products" class="nav-item lang-en lang-show">Products</a>
+<a href="#products" class="nav-item lang-zh">产品系列</a>
+<a href="#products" class="nav-item lang-fr">Produits</a>
+<a href="#products" class="nav-item lang-pt">Produtos</a>
 </li>
-<li><a href="#africa" class="nav-item lang-en">Africa Service</a>
-<a href="#africa" class="nav-item lang-zh" style="display:none;">非洲专线服务</a>
-<a href="#africa" class="nav-item lang-fr" style="display:none;">Service Afrique</a>
-<a href="#africa" class="nav-item lang-pt" style="display:none;">Serviço África</a>
+<li>
+<a href="#africa" class="nav-item lang-en lang-show">Africa Service</a>
+<a href="#africa" class="nav-item lang-zh">非洲专线服务</a>
+<a href="#africa" class="nav-item lang-fr">Service Afrique</a>
+<a href="#africa" class="nav-item lang-pt">Serviço África</a>
 </li>
-<li><a href="#contact" class="nav-item lang-en">Contact</a>
-<a href="#contact" class="nav-item lang-zh" style="display:none;">联系我们</a>
-<a href="#contact" class="nav-item lang-fr" style="display:none;">Contact</a>
-<a href="#contact" class="nav-item lang-pt" style="display:none;">Contato</a>
+<li>
+<a href="#contact" class="nav-item lang-en lang-show">Contact</a>
+<a href="#contact" class="nav-item lang-zh">联系我们</a>
+<a href="#contact" class="nav-item lang-fr">Nous contacter</a>
+<a href="#contact" class="nav-item lang-pt">Contato</a>
 </li>
 </ul>
 </div>
@@ -110,152 +117,234 @@ body{background:#f7f9fc;color:#333;line-height:1.8;padding-bottom:80px;}
 
 <!-- Factory工厂板块 -->
 <section id="factory" class="section">
-<h2 class="section-title lang-en">Manufacturing Strength</h2>
-<h2 class="section-title lang-zh" style="display:none;">生产实力</h2>
-<h2 class="section-title lang-fr" style="display:none;">Capacité de production</h2>
-<h2 class="section-title lang-pt" style="display:none;">Capacidade de Fabricação</h2>
+<h2 class="section-title lang-en lang-show">Manufacturing Strength</h2>
+<h2 class="section-title lang-zh">生产实力</h2>
+<h2 class="section-title lang-fr">Capacité de production</h2>
+<h2 class="section-title lang-pt">Capacidade de Fabricação</h2>
 <div class="factory-items">
-<div class="factory-item lang-en">3 professional production plants, total area 180,000 square meters</div>
-<div class="factory-item lang-zh" style="display:none;">3座专业化生产工厂，总面积18万平方米</div>
-<div class="factory-item lang-fr" style="display:none;">3 usines de production professionnelles, superficie totale de 180 000 mètres carrés</div>
-<div class="factory-item lang-pt" style="display:none;">3 fábricas de produção profissionais, área total de 180.000 metros quadrados</div>
+<div class="factory-item lang-en lang-show">3 professional production plants, total area 180,000 square meters</div>
+<div class="factory-item lang-zh">3座专业化生产工厂，总面积18万平方米</div>
+<div class="factory-item lang-fr">3 usines de production professionnelles, superficie totale de 180 000 m²</div>
+<div class="factory-item lang-pt">3 fábricas profissionais, área total de 180.000 metros quadrados</div>
 
-<div class="factory-item lang-en">Annual production capacity: 15,000 units</div>
-<div class="factory-item lang-zh" style="display:none;">年产能可达15000台挂车</div>
-<div class="factory-item lang-fr" style="display:none;">Capacité de production annuelle: 15 000 unités</div>
-<div class="factory-item lang-pt" style="display:none;">Capacidade de produção anual: 15.000 unidades</div>
+<div class="factory-item lang-en lang-show">Annual production capacity: 15,000 units</div>
+<div class="factory-item lang-zh">年产能可达15000台挂车</div>
+<div class="factory-item lang-fr">Capacité de production annuelle: 15 000 unités</div>
+<div class="factory-item lang-pt">Capacidade de produção anual: 15.000 unidades</div>
 
-<div class="factory-item lang-en">More than 400 skilled technicians and professional engineers</div>
-<div class="factory-item lang-zh" style="display:none;">拥有400多名熟练技工与专业工程师</div>
-<div class="factory-item lang-fr" style="display:none;">Plus de 400 techniciens qualifiés et ingénieurs professionnels</div>
-<div class="factory-item lang-pt" style="display:none;">Mais de 400 técnicos qualificados e engenheiros profissionais</div>
+<div class="factory-item lang-en lang-show">More than 400 skilled technicians and professional engineers</div>
+<div class="factory-item lang-zh">拥有400多名熟练技工与专业工程师</div>
+<div class="factory-item lang-fr">Plus de 400 techniciens qualifiés et ingénieurs</div>
+<div class="factory-item lang-pt">Mais de 400 técnicos e engenheiros qualificados</div>
 
-<div class="factory-item lang-en">Automatic laser cutting equipment, robot welding lines, standard paint spraying workshop</div>
-<div class="factory-item lang-zh" style="display:none;">全自动激光切割设备、机器人焊接生产线、标准化喷漆车间</div>
-<div class="factory-item lang-fr" style="display:none;">Équipements de coupe laser automatique, lignes de soudure robotisées, atelier de peinture standardisé</div>
-<div class="factory-item lang-pt" style="display:none;">Equipamentos de corte a laser automático, linhas de soldagem robótica, oficina de pintura padronizada</div>
+<div class="factory-item lang-en lang-show">Automatic laser cutting equipment, robot welding lines, standard paint spraying workshop</div>
+<div class="factory-item lang-zh">全自动激光切割、机器人焊接生产线、标准化喷漆车间</div>
+<div class="factory-item lang-fr">Equipements de coupe laser, lignes de soudure robotisées, atelier de peinture</div>
+<div class="factory-item lang-pt">Equipamentos de corte a laser, linhas de soldagem robótica, oficina de pintura</div>
 </div>
 </section>
 
-<!-- Products产品板块 -->
+<!-- Products产品板块 分类分组 -->
 <section id="products" class="section">
-<h2 class="product-title lang-en">Our Semi-Trailer Models</h2>
-<h2 class="product-title lang-zh" style="display:none;">半挂车产品系列</h2>
-<h2 class="product-title lang-fr" style="display:none;">Nos modèles de semi-remorques</h2>
-<h2 class="product-title lang-pt" style="display:none;">Nossos Modelos de Semi-reboque</h2>
+<h2 class="product-title lang-en lang-show">Our Semi-Trailer Series</h2>
+<h2 class="product-title lang-zh">半挂车全系列产品</h2>
+<h2 class="product-title lang-fr">Gamme complète de semi-remorques</h2>
+<h2 class="product-title lang-pt">Linha Completa de Semi-reboques</h2>
+
+<!-- 1. Flatbed Semi-trailer 平板车系列 -->
+<h3 class="group-title lang-en lang-show">Flatbed Semi-trailer Series</h3>
+<h3 class="group-title lang-zh">平板半挂车系列</h3>
+<h3 class="group-title lang-fr">Semi-remorques à plate-forme</h3>
+<h3 class="group-title lang-pt">Semi-reboques de Plataforma</h3>
 <div class="product-grid">
 <div class="product-card">
 <img loading="lazy" src="1.jpg" alt="Flatbed Semi-trailer">
-<p class="lang-en">Flatbed Semi-trailer</p>
-<p class="lang-zh" style="display:none;">平板半挂车</p>
-<p class="lang-fr" style="display:none;">Semi-remorque à plate-forme</p>
-<p class="lang-pt" style="display:none;">Semi-reboque de Plataforma</p>
+<p class="lang-en lang-show">Flatbed Semi-trailer</p>
+<p class="lang-zh">平板半挂车</p>
+<p class="lang-fr">Semi-remorque plate-forme</p>
+<p class="lang-pt">Semi-reboque de plataforma</p>
 </div>
+</div>
+
+<!-- 2. Curtain / Fence Semi-trailer 围栏仓栅车系列 -->
+<h3 class="group-title lang-en lang-show">Fence Curtain Semi-trailer Series</h3>
+<h3 class="group-title lang-zh">仓栅围栏半挂车系列</h3>
+<h3 class="group-title lang-fr">Semi-remorques à rideaux et clôtures</h3>
+<h3 class="group-title lang-pt">Semi-reboques de Grade e Lona</h3>
+<div class="product-grid">
 <div class="product-card">
 <img loading="lazy" src="2.jpg" alt="Curtain Side Semi-trailer">
-<p class="lang-en">Curtain Side Semi-trailer</p>
-<p class="lang-zh" style="display:none;">仓栅帘布半挂车</p>
-<p class="lang-fr" style="display:none;">Semi-remorque à rideaux</p>
-<p class="lang-pt" style="display:none;">Semi-reboque Lona Lateral</p>
+<p class="lang-en lang-show">Curtain Fence Semi-trailer</p>
+<p class="lang-zh">仓栅围栏半挂车</p>
+<p class="lang-fr">Semi-remorque à rideaux</p>
+<p class="lang-pt">Semi-reboque lona lateral</p>
 </div>
+</div>
+
+<!-- 3. Lowbed Semi-trailer 低平板系列 -->
+<h3 class="group-title lang-en lang-show">Lowbed Semi-trailer Series</h3>
+<h3 class="group-title lang-zh">低平板半挂车系列</h3>
+<h3 class="group-title lang-fr">Semi-remorques surbaissés</h3>
+<h3 class="group-title lang-pt">Semi-reboques Baixos</h3>
+<div class="product-grid">
 <div class="product-card">
 <img loading="lazy" src="3.jpg" alt="Lowbed Flatbed Trailer With Ramps">
-<p class="lang-en">Lowbed Flatbed Trailer With Ramps</p>
-<p class="lang-zh" style="display:none;">带爬梯低平板挂车</p>
-<p class="lang-fr" style="display:none;">Semi-remorque surbaissé avec rampes</p>
-<p class="lang-pt" style="display:none;">Semi-reboque Baixo com Rampas</p>
+<p class="lang-en lang-show">Lowbed Trailer With Ramps</p>
+<p class="lang-zh">带爬梯低平板挂车</p>
+<p class="lang-fr">Semi-remorque surbaissé avec rampes</p>
+<p class="lang-pt">Semi-reboque baixo com rampas</p>
 </div>
 <div class="product-card">
 <img loading="lazy" src="4.jpg" alt="Lowbed Gooseneck Trailer">
-<p class="lang-en">Lowbed Gooseneck Trailer</p>
-<p class="lang-zh" style="display:none;">鹅颈式低平板半挂车</p>
-<p class="lang-fr" style="display:none;">Semi-remorque surbaissé col de cygne</p>
-<p class="lang-pt" style="display:none;">Semi-reboque Pescoço de Ganso</p>
+<p class="lang-en lang-show">Gooseneck Lowbed Trailer</p>
+<p class="lang-zh">鹅颈低平板半挂车</p>
+<p class="lang-fr">Semi-remorque col de cygne</p>
+<p class="lang-pt">Semi-reboque pescoço de ganso</p>
 </div>
 <div class="product-card">
 <img loading="lazy" src="7.jpg" alt="Lowbed Semi-trailer">
-<p class="lang-en">Lowbed Semi-trailer</p>
-<p class="lang-zh" style="display:none;">低平板半挂车</p>
-<p class="lang-fr" style="display:none;">Semi-remorque surbaissé</p>
-<p class="lang-pt" style="display:none;">Semi-reboque Baixo</p>
+<p class="lang-en lang-show">Standard Lowbed Trailer</p>
+<p class="lang-zh">标准低平板半挂车</p>
+<p class="lang-fr">Semi-remorque surbaissé standard</p>
+<p class="lang-pt">Semi-reboque baixo padrão</p>
 </div>
+</div>
+
+<!-- 4. Container Skeleton 集装箱骨架车 -->
+<h3 class="group-title lang-en lang-show">Container Skeleton Semi-trailer Series</h3>
+<h3 class="group-title lang-zh">集装箱骨架半挂车系列</h3>
+<h3 class="group-title lang-fr">Semi-remorques porte-conteneurs</h3>
+<h3 class="group-title lang-pt">Semi-reboques para Contêineres</h3>
+<div class="product-grid">
 <div class="product-card">
 <img loading="lazy" src="8.jpg" alt="Container Semi-trailer">
-<p class="lang-en">Container Semi-trailer</p>
-<p class="lang-zh" style="display:none;">集装箱骨架半挂车</p>
-<p class="lang-fr" style="display:none;">Semi-remorque porte-conteneurs</p>
-<p class="lang-pt" style="display:none;">Semi-reboque para Contêiner</p>
+<p class="lang-en lang-show">Container Skeleton Trailer</p>
+<p class="lang-zh">集装箱骨架半挂车</p>
+<p class="lang-fr">Semi-remorque porte-conteneur</p>
+<p class="lang-pt">Semi-reboque estrutura para contêiner</p>
 </div>
+</div>
+
+<!-- 5. Dump Semi-trailer 自卸车系列 -->
+<h3 class="group-title lang-en lang-show">Dump Tipper Semi-trailer Series</h3>
+<h3 class="group-title lang-zh">自卸翻斗半挂车系列</h3>
+<h3 class="group-title lang-fr">Semi-remorques benne basculante</h3>
+<h3 class="group-title lang-pt">Semi-reboques Basculantes</h3>
+<div class="product-grid">
 <div class="product-card">
 <img loading="lazy" src="9.jpg" alt="Dump Semi-trailer">
-<p class="lang-en">Dump Semi-trailer</p>
-<p class="lang-zh" style="display:none;">自卸半挂车</p>
-<p class="lang-fr" style="display:none;">Semi-remorque benne</p>
-<p class="lang-pt" style="display:none;">Semi-reboque Basculante</p>
+<p class="lang-en lang-show">Dump Tipper Semi-trailer</p>
+<p class="lang-zh">自卸翻斗半挂车</p>
+<p class="lang-fr">Semi-remorque benne</p>
+<p class="lang-pt">Semi-reboque basculante</p>
 </div>
+</div>
+
+<!-- 6. Oil Tank Semi-trailer 油罐车系列 预留图片位置10.jpg -->
+<h3 class="group-title lang-en lang-show">Oil Tank Semi-trailer Series</h3>
+<h3 class="group-title lang-zh">油罐半挂车系列</h3>
+<h3 class="group-title lang-fr">Semi-remorques citerne à pétrole</h3>
+<h3 class="group-title lang-pt">Semi-reboques Tanque de Combustível</h3>
+<div class="product-grid">
+<div class="product-card">
+<img loading="lazy" src="10.jpg" alt="Oil Tank Semi-trailer">
+<p class="lang-en lang-show">Oil Tank Semi-trailer</p>
+<p class="lang-zh">油罐半挂车</p>
+<p class="lang-fr">Semi-remorque citerne pétrole</p>
+<p class="lang-pt">Semi-reboque tanque combustível</p>
+</div>
+</div>
+
+<!-- 7. Cement Bulk Tank 水泥粉罐车系列 预留11.jpg -->
+<h3 class="group-title lang-en lang-show">Cement Bulk Tank Semi-trailer Series</h3>
+<h3 class="group-title lang-zh">散装水泥罐车系列</h3>
+<h3 class="group-title lang-fr">Semi-remorques citerne à ciment</h3>
+<h3 class="group-title lang-pt">Semi-reboques Tanque de Cimento</h3>
+<div class="product-grid">
+<div class="product-card">
+<img loading="lazy" src="11.jpg" alt="Cement Tank Semi-trailer">
+<p class="lang-en lang-show">Bulk Cement Tank Trailer</p>
+<p class="lang-zh">散装水泥罐半挂车</p>
+<p class="lang-fr">Semi-remorque citerne ciment</p>
+<p class="lang-pt">Semi-reboque tanque de cimento</p>
+</div>
+</div>
+
+<!-- 牵引车头独立分类 -->
+<h3 class="group-title lang-en lang-show">Tractor Head Series</h3>
+<h3 class="group-title lang-zh">牵引车头系列</h3>
+<h3 class="group-title lang-fr">Têtes tractrices</h3>
+<h3 class="group-title lang-pt">Cabeças Tratoras</h3>
+<div class="product-grid">
 <div class="product-card">
 <img loading="lazy" src="30.jpg" alt="Tractor Head">
-<p class="lang-en">Tractor Head</p>
-<p class="lang-zh" style="display:none;">牵引车头</p>
-<p class="lang-fr" style="display:none;">Tracteur routier</p>
-<p class="lang-pt" style="display:none;">Cabeça Tratora</p>
+<p class="lang-en lang-show">Heavy Duty Tractor Head</p>
+<p class="lang-zh">重型牵引车头</p>
+<p class="lang-fr">Tracteur lourd</p>
+<p class="lang-pt">Cabeça tratora pesada</p>
 </div>
 </div>
+
 </section>
 
-<!-- Africa Service板块 已修改贸易条款内容 -->
+<!-- Africa Service板块 -->
 <section id="africa" class="section">
-<h2 class="section-title lang-en">Africa Service</h2>
-<h2 class="section-title lang-zh" style="display:none;">非洲货运专线服务</h2>
-<h2 class="section-title lang-fr" style="display:none;">Service vers l'Afrique</h2>
-<h2 class="section-title lang-pt" style="display:none;">Serviço para África</h2>
-
-<div class="africa-text lang-en">
+<h2 class="section-title lang-en lang-show">Africa Service</h2>
+<h2 class="section-title lang-zh">非洲货运专线服务</h2>
+<h2 class="section-title lang-fr">Service vers l'Afrique</h2>
+<h2 class="section-title lang-pt">Serviço para África</h2>
+<div class="africa-text lang-en lang-show">
 We provide stable delivery to Nigeria, Ghana, Kenya, Algeria, Namibia and other African countries. We accept FOB, CFR and CIF shipping terms.
 </div>
-<div class="africa-text lang-zh" style="display:none;">
+<div class="africa-text lang-zh">
 我们可稳定发运至尼日利亚、加纳、肯尼亚、阿尔及利亚、纳米比亚等非洲各国。可接受FOB、CFR、CIF贸易条款。
 </div>
-<div class="africa-text lang-fr" style="display:none;">
-Nous assurons des livraisons stables vers le Nigéria, le Ghana, le Kenya, l'Algérie, la Namibie et d'autres pays africains. Nous acceptons les conditions commerciales FOB, CFR et CIF.
+<div class="africa-text lang-fr">
+Nous livrons vers Nigéria, Ghana, Kenya, Algérie, Namibie et autres pays africains. Nous acceptons FOB, CFR et CIF.
 </div>
-<div class="africa-text lang-pt" style="display:none;">
-Realizamos entregas constantes para Nigéria, Gana, Quênia, Argélia, Namíbia e outros países africanos. Aceitamos condições de frete FOB, CFR e CIF.
+<div class="africa-text lang-pt">
+Entregamos para Nigéria, Gana, Quênia, Argélia, Namíbia e outros países africanos. Aceitamos FOB, CFR e CIF.
 </div>
 </section>
 
-<!-- Contact联系表单 -->
+<!-- Contact联系表单 WhatsApp号码 -->
 <section id="contact" class="section">
-<h2 class="section-title lang-en">Contact Us</h2>
-<h2 class="section-title lang-zh" style="display:none;">联系我们</h2>
-<h2 class="section-title lang-fr" style="display:none;">Nous contacter</h2>
-<h2 class="section-title lang-pt" style="display:none;">Entre em Contato</h2>
+<h2 class="section-title lang-en lang-show">Contact Us</h2>
+<h2 class="section-title lang-zh">联系我们</h2>
+<h2 class="section-title lang-fr">Nous contacter</h2>
+<h2 class="section-title lang-pt">Entre em Contato</h2>
 <div class="contact-wrap">
-<p class="lang-en">Please fill in the form, we will reply you as soon as possible.</p>
-<p class="lang-zh" style="display:none;">请填写表单，我们将尽快回复您。</p>
-<p class="lang-fr" style="display:none;">Veuillez remplir le formulaire, nous vous répondrons dans les plus brefs délais.</p>
-<p class="lang-pt" style="display:none;">Preencha o formulário, entraremos em contato o mais rápido possível.</p>
+
+<div class="whatsapp-info lang-en lang-show">WhatsApp: +86 13800138000</div>
+<div class="whatsapp-info lang-zh">WhatsApp：+86 13800138000</div>
+<div class="whatsapp-info lang-fr">WhatsApp: +86 13800138000</div>
+<div class="whatsapp-info lang-pt">WhatsApp: +86 13800138000</div>
+
+<p class="lang-en lang-show">Please fill in the form, we will reply you as soon as possible.</p>
+<p class="lang-zh">请填写表单，我们将尽快回复您。</p>
+<p class="lang-fr">Veuillez remplir le formulaire, nous vous répondrons rapidement.</p>
+<p class="lang-pt">Preencha o formulário, entraremos em contato rápido.</p>
 
 <form class="form-box" action="" method="post">
-<input class="form-input lang-en" type="text" name="name" placeholder="Your Name" required>
-<input class="form-input lang-zh" type="text" name="name" placeholder="您的姓名" style="display:none;" required>
-<input class="form-input lang-fr" type="text" name="name" placeholder="Votre nom" style="display:none;" required>
-<input class="form-input lang-pt" type="text" name="name" placeholder="Seu nome" style="display:none;" required>
+<input class="form-input lang-en lang-show" type="text" name="name" placeholder="Your Name" required>
+<input class="form-input lang-zh" type="text" name="name" placeholder="您的姓名" required>
+<input class="form-input lang-fr" type="text" name="name" placeholder="Votre nom" required>
+<input class="form-input lang-pt" type="text" name="name" placeholder="Seu nome" required>
 
-<input class="form-input lang-en" type="email" name="email" placeholder="Your Email / WhatsApp" required>
-<input class="form-input lang-zh" type="email" name="email" placeholder="您的邮箱/WhatsApp" style="display:none;" required>
-<input class="form-input lang-fr" type="email" name="email" placeholder="Votre e-mail / WhatsApp" style="display:none;" required>
-<input class="form-input lang-pt" type="email" name="email" placeholder="Seu e-mail / WhatsApp" style="display:none;" required>
+<input class="form-input lang-en lang-show" type="email" name="email" placeholder="Your Email / WhatsApp" required>
+<input class="form-input lang-zh" type="email" name="email" placeholder="邮箱/WhatsApp" required>
+<input class="form-input lang-fr" type="email" name="email" placeholder="Email / WhatsApp" required>
+<input class="form-input lang-pt" type="email" name="email" placeholder="Email / WhatsApp" required>
 
-<textarea class="form-textarea lang-en" name="message" placeholder="Your Inquiry (Model, Quantity, Destination Port)" required></textarea>
-<textarea class="form-textarea lang-zh" name="message" placeholder="询价信息：车型、数量、目的港口" style="display:none;" required></textarea>
-<textarea class="form-textarea lang-fr" name="message" placeholder="Votre demande (Modèle, Quantité, Port de destination)" style="display:none;" required></textarea>
-<textarea class="form-textarea lang-pt" name="message" placeholder="Sua consulta (Modelo, Quantidade, Porto de destino)" style="display:none;" required></textarea>
+<textarea class="form-textarea lang-en lang-show" name="message" placeholder="Model, Quantity, Destination Port" required></textarea>
+<textarea class="form-textarea lang-zh" name="message" placeholder="车型、数量、目的港口" required></textarea>
+<textarea class="form-textarea lang-fr" name="message" placeholder="Modèle, Quantité, Port de destination" required></textarea>
+<textarea class="form-textarea lang-pt" name="message" placeholder="Modelo, Quantidade, Porto de destino" required></textarea>
 
-<button class="submit-btn lang-en" type="submit">Send Inquiry</button>
-<button class="submit-btn lang-zh" type="submit" style="display:none;">提交询价</button>
-<button class="submit-btn lang-fr" type="submit" style="display:none;">Envoyer la demande</button>
-<button class="submit-btn lang-pt" type="submit" style="display:none;">Enviar Consulta</button>
+<button class="submit-btn lang-en lang-show" type="submit">Send Inquiry</button>
+<button class="submit-btn lang-zh" type="submit">提交询价</button>
+<button class="submit-btn lang-fr" type="submit">Envoyer demande</button>
+<button class="submit-btn lang-pt" type="submit">Enviar consulta</button>
 </form>
 </div>
 </section>
@@ -265,10 +354,10 @@ Realizamos entregas constantes para Nigéria, Gana, Quênia, Argélia, Namíbia 
 const langSelect = document.getElementById('langSelect');
 langSelect.addEventListener('change',function(){
   const val = this.value;
-  document.querySelectorAll('.lang-en').forEach(e=>e.style.display = val=='en'?'block':'none');
-  document.querySelectorAll('.lang-zh').forEach(e=>e.style.display = val=='zh'?'block':'none');
-  document.querySelectorAll('.lang-fr').forEach(e=>e.style.display = val=='fr'?'block':'none');
-  document.querySelectorAll('.lang-pt').forEach(e=>e.style.display = val=='pt'?'block':'none');
+  document.querySelectorAll('.lang-en').forEach(e=>e.classList.toggle('lang-show',val=='en'));
+  document.querySelectorAll('.lang-zh').forEach(e=>e.classList.toggle('lang-show',val=='zh'));
+  document.querySelectorAll('.lang-fr').forEach(e=>e.classList.toggle('lang-show',val=='fr'));
+  document.querySelectorAll('.lang-pt').forEach(e=>e.classList.toggle('lang-show',val=='pt'));
 });
 </script>
 
