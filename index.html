@@ -8,76 +8,78 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;scroll-behavior:smooth;}
 body{background:#ffffff;color:#333;line-height:1.6;padding-bottom:80px;}
 
-/* ========== 顶部顶部栏：Logo + 搜索框 + WhatsApp ========== */
+/* 顶部Logo、搜索框、WhatsApp */
 .top-header{max-width:1200px;margin:0 auto;padding:20px 15px;display:flex;justify-content:space-between;align-items:center;}
-.logo{font-size:36px;font-weight:bold;color:#162544;display:flex;align-items:center;gap:10px;}
-.logo img{height:40px;}
+.logo{font-size:36px;font-weight:bold;color:#162544;}
 .search-area{display:flex;align-items:center;gap:8px;}
-.search-input{border:1px solid #ddd;padding:10px 15px;width:280px;font-size:15px;border-radius:2px;}
+.search-input{border:1px solid #ddd;padding:10px 15px;width:280px;font-size:15px;}
 .search-btn{background:#ff8800;color:#fff;border:none;padding:10px 16px;cursor:pointer;font-weight:bold;}
-.whatsapp-top{display:flex;align-items:center;gap:8px;font-weight:bold;color:#162544;font-size:16px;}
+.whatsapp-top{font-weight:bold;color:#162544;font-size:16px;}
 
-/* ========== 蓝色主导航菜单 ========== */
+/* 深蓝色主导航 */
 .main-nav{background:#162544;}
 .nav-wrap{max-width:1200px;margin:0 auto;}
 .nav-list{display:flex;list-style:none;}
-.nav-list li{position:relative;}
-.nav-list a{display:block;color:#fff;text-decoration:none;padding:16px 22px;font-size:16px;}
-.nav-list a:hover{background:#0f1f38;}
-.nav-active{background:#0f1f38;border-bottom:3px solid #ff8800;}
+.nav-list li a{display:block;color:#fff;text-decoration:none;padding:16px 22px;font-size:16px;}
+.nav-list li a:hover{background:#0f1f38;}
+.nav-active{background:#0f1f38;}
+.lang-select{margin-left:auto;padding:6px 10px;border:none;}
 
-/* 语言选择下拉框 */
-.lang-select{margin-left:20px;padding:6px 10px;border:none;background:#fff;color:#333;}
+/* 首页横幅视频 */
+.banner-video{max-width:1200px;margin:0 auto 30px;width:100%;}
+.banner-video video{width:100%;height:auto;display:block;object-fit:cover;}
 
-/* ========== 面包屑导航 You are here ========== */
+/* 面包屑导航 */
 .breadcrumb{max-width:1200px;margin:0 auto;padding:12px 15px;color:#666;font-size:14px;background:#f5f7fa;}
 .breadcrumb a{color:#162544;text-decoration:none;}
 
-/* ========== 页面大标题 ========== */
-.page-title{max-width:1200px;margin:40px auto;padding:0 15px;text-align:center;font-size:28px;color:#222;font-weight:normal;border-bottom:1px solid #eee;padding-bottom:15px;}
+/* 页面标题 */
+.page-title{max-width:1200px;margin:40px auto;padding:0 15px;text-align:center;font-size:28px;font-weight:normal;border-bottom:1px solid #eee;padding-bottom:15px;}
 
-/* ========== 产品网格布局 和参考网站一模一样 ========== */
+/* ==========核心：强制横排布局 grid横向排列========== */
 .container{max-width:1200px;margin:30px auto;padding:0 15px;}
-/* 每个产品系列分组标题 */
-.group-title{font-size:22px;margin:50px 0 25px;color:#162544;font-weight:bold;}
-.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;margin-bottom:40px;}
-.product-card{border:1px solid #eee;overflow:hidden;text-align:center;background:#fff;}
-.product-card img{width:100%;height:220px;object-fit:cover;display:block;}
-.product-name{padding:15px 10px;font-size:15px;color:#333;line-height:1.5;}
+.group-title{font-size:22px;margin:50px 0 20px;color:#162544;font-weight:bold;}
+/* 强制一行4列横向分布，固定横排 */
+.product-grid{
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    grid-gap: 25px !important;
+    width: 100% !important;
+    margin-bottom: 30px;
+}
+.product-card{border:1px solid #eee;text-align:center;background:#fff;padding:15px;display:block;}
+.product-card img{width:100%;height:220px;object-fit:cover;}
+.product-name{padding:12px 0;font-size:15px;}
 
-/* Africa Service 板块 */
+/* 非洲服务板块 */
 .africa-section{max-width:1200px;margin:60px auto;padding:0 15px;}
 .africa-title{font-size:24px;color:#162544;margin-bottom:20px;}
-.africa-desc{background:#f8f9fa;padding:25px;border-radius:4px;font-size:16px;line-height:1.7;}
+.africa-desc{background:#f8f9fa;padding:25px;font-size:16px;line-height:1.7;}
 
-/* 联系我们板块 */
+/* 联系板块 */
 .contact-section{max-width:1200px;margin:60px auto;padding:0 15px;}
 .contact-title{font-size:24px;color:#162544;margin-bottom:20px;}
-.contact-box{background:#f8f9fa;padding:30px;border-radius:4px;}
+.contact-box{background:#f8f9fa;padding:30px;}
 .whatsapp-number{font-size:18px;font-weight:bold;color:#162544;margin-bottom:20px;}
 .form-item{margin-bottom:18px;}
 .form-input{width:100%;padding:12px;border:1px solid #ddd;font-size:15px;}
 .form-textarea{width:100%;min-height:120px;padding:12px;border:1px solid #ddd;font-size:15px;resize:vertical;}
 .submit-btn{background:#162544;color:#fff;border:none;padding:12px 25px;font-size:16px;cursor:pointer;}
 
-/* 固定右下角在线WhatsApp悬浮按钮 */
+/* 右下角固定WhatsApp悬浮按钮 */
 .fixed-whatsapp{position:fixed;right:20px;bottom:30px;background:#25d366;color:#fff;padding:12px 18px;border-radius:50px;font-weight:bold;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,0.2);}
 
-/* 多语言隐藏样式 */
+/* 多语言切换样式 */
 .lang{display:none;}
 .lang-show{display:block;}
 </style>
 </head>
 <body>
 
-<!-- 顶部区域：Logo + 搜索框 + WhatsApp -->
+<!-- 顶部区域 -->
 <div class="top-header">
-    <div class="logo lang lang-show">
-        AUTO ZHONGRISES
-    </div>
-    <div class="logo lang" style="display:none;">
-        AUTO 众瑞挂车
-    </div>
+    <div class="logo lang lang-show">AUTO ZHONGRISES</div>
+    <div class="logo lang" style="display:none;">AUTO众瑞挂车</div>
 
     <div class="search-area">
         <input type="text" class="search-input lang lang-show" placeholder="Search">
@@ -89,193 +91,179 @@ body{background:#ffffff;color:#333;line-height:1.6;padding-bottom:80px;}
     <div class="whatsapp-top lang" style="display:none;">WhatsApp咨询</div>
 </div>
 
-<!-- 蓝色主导航菜单 -->
+<!-- 导航栏 -->
 <div class="main-nav">
     <div class="nav-wrap">
         <ul class="nav-list">
-            <li><a href="#" class="nav-item nav-active lang lang-show">Home</a>
-                <a href="#" class="nav-item lang" style="display:none;">首页</a>
-            </li>
-            <li><a href="#factory" class="nav-item lang lang-show">About Us</a>
-                <a href="#factory" class="nav-item lang" style="display:none;">关于我们</a>
-            </li>
-            <li><a href="#products" class="nav-item lang lang-show">Product Center</a>
-                <a href="#products" class="nav-item lang" style="display:none;">产品中心</a>
-            </li>
-            <li><a href="#africa" class="nav-item lang lang-show">Africa Service</a>
-                <a href="#africa" class="nav-item lang" style="display:none;">非洲专线服务</a>
-            </li>
-            <li><a href="#contact" class="nav-item lang lang-show">Contact Us</a>
-                <a href="#contact" class="nav-item lang" style="display:none;">联系我们</a>
-            </li>
-            <!-- 语言切换下拉 -->
+            <li><a href="#" class="nav-item nav-active lang lang-show">Home</a><a href="#" class="nav-item lang" style="display:none;">首页</a></li>
+            <li><a href="#factory" class="nav-item lang lang-show">About Us</a><a href="#factory" class="nav-item lang" style="display:none;">关于我们</a></li>
+            <li><a href="#products" class="nav-item lang lang-show">Product Center</a><a href="#products" class="nav-item lang" style="display:none;">产品中心</a></li>
+            <li><a href="#africa" class="nav-item lang lang-show">Africa Service</a><a href="#africa" class="nav-item lang" style="display:none;">非洲专线服务</a></li>
+            <li><a href="#contact" class="nav-item lang lang-show">Contact Us</a><a href="#contact" class="nav-item lang" style="display:none;">联系我们</a></li>
             <li style="margin-left:auto;">
                 <select id="langSwitch" class="lang-select">
                     <option value="en">English</option>
                     <option value="zh">中文</option>
-                    <option value="fr">Français</option>
-                    <option value="pt">Português</option>
                 </select>
             </li>
         </ul>
     </div>
 </div>
 
-<!-- 面包屑导航 You are here -->
-<div class="breadcrumb lang lang-show">
-    You are here: <a href="#">Home</a> / <a href="#">Product Center</a> / Lowbed Semi-trailer
-</div>
-<div class="breadcrumb lang" style="display:none;">
-    当前位置：<a href="#">首页</a> / <a href="#">产品中心</a> / 低平板半挂车
+<!-- 首页6.mp4自动循环播放视频 -->
+<div class="banner-video">
+    <video autoplay muted loop playsinline>
+        <source src="6.mp4" type="video/mp4">
+    </video>
 </div>
 
-<!-- 页面标题 -->
+<!-- 面包屑 -->
+<div class="breadcrumb lang lang-show">
+You are here: Home / Product Center / Lowbed Semi-trailer
+</div>
+<div class="breadcrumb lang" style="display:none;">
+当前位置：首页 / 产品中心 / 低平板半挂车
+</div>
+
 <h1 class="page-title lang lang-show">Lowbed Semi-trailer</h1>
 <h1 class="page-title lang" style="display:none;">低平板半挂车</h1>
 
 <section id="products" class="container">
 
-    <!-- 1.平板半挂车系列 -->
-    <h3 class="group-title lang lang-show">Flatbed Semi-trailer Series</h3>
-    <h3 class="group-title lang" style="display:none;">平板半挂车系列</h3>
-    <div class="product-grid">
-        <div class="product-card">
-            <img src="1.jpg">
-            <p class="product-name lang lang-show">60 Ton Flatbed Semi Trailer</p>
-            <p class="product-name lang" style="display:none;">60吨平板半挂车</p>
-        </div>
-    </div>
+<!-- 平板半挂车系列 横排展示 -->
+<h3 class="group-title lang lang-show">Flatbed Semi-trailer Series</h3>
+<h3 class="group-title lang" style="display:none;">平板半挂车系列</h3>
+<div class="product-grid">
+<div class="product-card">
+<img src="1.jpg">
+<p class="product-name lang lang-show">60 Ton Flatbed Semi Trailer</p>
+<p class="product-name lang" style="display:none;">60吨平板半挂车</p>
+</div>
+</div>
 
-    <!-- 2.仓栅围栏半挂车系列 -->
-    <h3 class="group-title lang lang-show">Fence Curtain Semi-trailer Series</h3>
-    <h3 class="group-title lang" style="display:none;">仓栅围栏半挂车系列</h3>
-    <div class="product-grid">
-        <div class="product-card">
-            <img src="2.jpg">
-            <p class="product-name lang lang-show">Curtain Fence Semi Trailer</p>
-            <p class="product-name lang" style="display:none;">仓栅栏板半挂车</p>
-        </div>
-    </div>
+<!-- 仓栅围栏半挂车系列 横排展示 -->
+<h3 class="group-title lang lang-show">Fence Curtain Semi-trailer Series</h3>
+<h3 class="group-title lang" style="display:none;">仓栅围栏半挂车系列</h3>
+<div class="product-grid">
+<div class="product-card">
+<img src="2.jpg">
+<p class="product-name lang lang-show">Curtain Fence Semi Trailer</p>
+<p class="product-name lang" style="display:none;">仓栅栏板半挂车</p>
+</div>
+</div>
 
-    <!-- 3.低平板半挂车系列（和你截图页面完全一致区域） -->
-    <h3 class="group-title lang lang-show">Lowbed Semi-trailer Series</h3>
-    <h3 class="group-title lang" style="display:none;">低平板半挂车系列</h3>
-    <div class="product-grid">
-        <div class="product-card">
-            <img src="3.jpg">
-            <p class="product-name lang lang-show">60 Ton Lowbed Semi Trailer</p>
-            <p class="product-name lang" style="display:none;">60吨低平板半挂车</p>
-        </div>
-        <div class="product-card">
-            <img src="4.jpg">
-            <p class="product-name lang lang-show">Gooseneck Lowbed Trailer</p>
-            <p class="product-name lang" style="display:none;">鹅颈式低平板挂车</p>
-        </div>
-        <div class="product-card">
-            <img src="7.jpg">
-            <p class="product-name lang lang-show">Heavy Duty Lowbed Semi Trailer</p>
-            <p class="product-name lang" style="display:none;">重型低平板半挂车</p>
-        </div>
-    </div>
+<!-- 低平板半挂车系列 多张图片横向并排 -->
+<h3 class="group-title lang lang-show">Lowbed Semi-trailer Series</h3>
+<h3 class="group-title lang" style="display:none;">低平板半挂车系列</h3>
+<div class="product-grid">
+<div class="product-card">
+<img src="3.jpg">
+<p class="product-name lang lang-show">60 Ton Lowbed Semi Trailer</p>
+<p class="product-name lang" style="display:none;">60吨低平板半挂车</p>
+</div>
+<div class="product-card">
+<img src="4.jpg">
+<p class="product-name lang lang-show">Gooseneck Lowbed Trailer</p>
+<p class="product-name lang" style="display:none;">鹅颈式低平板挂车</p>
+</div>
+<div class="product-card">
+<img src="7.jpg">
+<p class="product-name lang lang-show">Heavy Duty Lowbed Semi Trailer</p>
+<p class="product-name lang" style="display:none;">重型低平板半挂车</p>
+</div>
+</div>
 
-    <!-- 4.集装箱骨架半挂车 -->
-    <h3 class="group-title lang lang-show">Container Skeleton Semi-trailer Series</h3>
-    <h3 class="group-title lang" style="display:none;">集装箱骨架半挂车系列</h3>
-    <div class="product-grid">
-        <div class="product-card">
-            <img src="8.jpg">
-            <p class="product-name lang lang-show">40ft Container Skeleton Trailer</p>
-            <p class="product-name lang" style="display:none;">40英尺集装箱骨架车</p>
-        </div>
-    </div>
+<!-- 集装箱骨架半挂车 -->
+<h3 class="group-title lang lang-show">Container Skeleton Semi-trailer Series</h3>
+<h3 class="group-title lang" style="display:none;">集装箱骨架半挂车系列</h3>
+<div class="product-grid">
+<div class="product-card">
+<img src="8.jpg">
+<p class="product-name lang lang-show">40ft Container Skeleton Trailer</p>
+<p class="product-name lang" style="display:none;">40英尺集装箱骨架车</p>
+</div>
+</div>
 
-    <!-- 5.自卸半挂车 -->
-    <h3 class="group-title lang lang-show">Dump Tipper Semi-trailer Series</h3>
-    <h3 class="group-title lang" style="display:none;">自卸翻斗半挂车系列</h3>
-    <div class="product-grid">
-        <div class="product-card">
-            <img src="9.jpg">
-            <p class="product-name lang lang-show">Tipper Dump Semi Trailer</p>
-            <p class="product-name lang" style="display:none;">自卸翻斗半挂车</p>
-        </div>
-    </div>
+<!-- 自卸半挂车 -->
+<h3 class="group-title lang lang-show">Dump Tipper Semi-trailer Series</h3>
+<h3 class="group-title lang" style="display:none;">自卸翻斗半挂车系列</h3>
+<div class="product-grid">
+<div class="product-card">
+<img src="9.jpg">
+<p class="product-name lang lang-show">Tipper Dump Semi Trailer</p>
+<p class="product-name lang" style="display:none;">自卸翻斗半挂车</p>
+</div>
+</div>
 
-    <!-- 6.牵引车头 -->
-    <h3 class="group-title lang lang-show">Tractor Head Series</h3>
-    <h3 class="group-title lang" style="display:none;">牵引车头系列</h3>
-    <div class="product-grid">
-        <div class="product-card">
-            <img src="30.jpg">
-            <p class="product-name lang lang-show">Heavy Duty Tractor Truck Head</p>
-            <p class="product-name lang" style="display:none;">重型牵引车头</p>
-        </div>
-    </div>
+<!-- 牵引车头 -->
+<h3 class="group-title lang lang-show">Tractor Head Series</h3>
+<h3 class="group-title lang" style="display:none;">牵引车头系列</h3>
+<div class="product-grid">
+<div class="product-card">
+<img src="30.jpg">
+<p class="product-name lang lang-show">Heavy Duty Tractor Truck Head</p>
+<p class="product-name lang" style="display:none;">重型牵引车头</p>
+</div>
+</div>
 
 </section>
 
-<!-- Africa Service板块 -->
+<!-- 非洲服务 -->
 <section id="africa" class="africa-section">
-    <h2 class="africa-title lang lang-show">Africa Service</h2>
-    <h2 class="africa-title lang" style="display:none;">非洲货运专线服务</h2>
-    <div class="africa-desc lang lang-show">
+<h2 class="africa-title lang lang-show">Africa Service</h2>
+<h2 class="africa-title lang" style="display:none;">非洲货运专线服务</h2>
+<div class="africa-desc lang lang-show">
 We provide stable delivery to Nigeria, Ghana, Kenya, Algeria, Namibia and other African countries. We accept FOB, CFR and CIF shipping terms.
-    </div>
-    <div class="africa-desc lang" style="display:none;">
+</div>
+<div class="africa-desc lang" style="display:none;">
 我们可稳定发运至尼日利亚、加纳、肯尼亚、阿尔及利亚、纳米比亚等非洲各国，可接受FOB、CFR、CIF贸易条款。
-    </div>
+</div>
 </section>
 
-<!-- 联系我们板块 -->
+<!-- 联系我们 -->
 <section id="contact" class="contact-section">
-    <h2 class="contact-title lang lang-show">Contact Us</h2>
-    <h2 class="contact-title lang" style="display:none;">联系我们</h2>
-    <div class="contact-box">
-        <div class="whatsapp-number lang lang-show">WhatsApp: +86 13800138000</div>
-        <div class="whatsapp-number lang" style="display:none;">WhatsApp：+86 13800138000</div>
+<h2 class="contact-title lang lang-show">Contact Us</h2>
+<h2 class="contact-title lang" style="display:none;">联系我们</h2>
+<div class="contact-box">
+<div class="whatsapp-number lang lang-show">WhatsApp: +86 13800138000</div>
+<div class="whatsapp-number lang" style="display:none;">WhatsApp：+86 13800138000</div>
 
-        <div class="form-item lang lang-show">
-            <input class="form-input" placeholder="Your Name">
-        </div>
-        <div class="form-item lang" style="display:none;">
-            <input class="form-input" placeholder="您的姓名">
-        </div>
+<div class="form-item lang lang-show">
+<input class="form-input" placeholder="Your Name">
+</div>
+<div class="form-item lang" style="display:none;">
+<input class="form-input" placeholder="您的姓名">
+</div>
 
-        <div class="form-item lang lang-show">
-            <input class="form-input" placeholder="Your WhatsApp / Email">
-        </div>
-        <div class="form-item lang" style="display:none;">
-            <input class="form-input" placeholder="WhatsApp / 邮箱">
-        </div>
+<div class="form-item lang lang-show">
+<input class="form-input" placeholder="Your WhatsApp / Email">
+</div>
+<div class="form-item lang" style="display:none;">
+<input class="form-input" placeholder="WhatsApp / 邮箱">
+</div>
 
-        <div class="form-item lang lang-show">
-            <textarea class="form-textarea" placeholder="Inquiry: Trailer Model, Quantity, Destination Port"></textarea>
-        </div>
-        <div class="form-item lang" style="display:none;">
-            <textarea class="form-textarea" placeholder="询价信息：挂车型号、数量、目的港口"></textarea>
-        </div>
+<div class="form-item lang lang-show">
+<textarea class="form-textarea" placeholder="Inquiry: Trailer Model, Quantity, Destination Port"></textarea>
+</div>
+<div class="form-item lang" style="display:none;">
+<textarea class="form-textarea" placeholder="询价信息：挂车型号、数量、目的港口"></textarea>
+</div>
 
-        <button class="submit-btn lang lang-show">Send Inquiry</button>
-        <button class="submit-btn lang" style="display:none;">提交询价</button>
-    </div>
+<button class="submit-btn lang lang-show">Send Inquiry</button>
+<button class="submit-btn lang" style="display:none;">提交询价</button>
+</div>
 </section>
 
-<!-- 右下角固定悬浮WhatsApp在线按钮 和参考网站一致 -->
 <a href="#" class="fixed-whatsapp lang lang-show">WhatsApp Online</a>
 <a href="#" class="fixed-whatsapp lang" style="display:none;">WhatsApp在线咨询</a>
 
 <script>
-//多语言切换脚本
+//语言切换
 const select = document.getElementById('langSwitch');
-const allLang = document.querySelectorAll('.lang');
+const all = document.querySelectorAll('.lang');
 select.addEventListener('change',function(){
-    const val = this.value;
-    allLang.forEach(item=>{
-        if(val=='en'){
-            item.classList.toggle('lang-show', item.classList.contains('lang-en'));
-        }else if(val=='zh'){
-            item.classList.toggle('lang-show', item.classList.contains('lang-zh'));
-        }
-    })
+const val = this.value;
+all.forEach(el=>el.classList.toggle('lang-show',val=='en'));
 })
 </script>
 
